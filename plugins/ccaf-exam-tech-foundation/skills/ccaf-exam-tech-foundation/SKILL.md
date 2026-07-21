@@ -60,3 +60,7 @@ Warm, plain, encouraging. The learner is bright but new to this vocabulary — n
 ## Handoff back to cca-f-exam-prep
 
 When a learner came from a cca-f-exam-prep session, end by naming the bridge explicitly: "That's the concept — when you go back to studying [exam topic], it'll read as [plain restatement]." Then suggest they resume cca-f-exam-prep.
+
+## Accuracy disclaimer
+
+The CCA-F skill family carries verification guardrails (source-tiered claims: official guide/docs > verified-live-on-machine > model memory, with memory never presented as bare fact) — **but no guardrail makes an AI teacher error-proof.** Technical explanations can contain errors or go stale between Claude Code versions. Treat claims as checkable, not gospel: the official Anthropic exam guide and docs win over anything said here, and anything verifiable on your own machine (`--help`, `ls`, a test file) is worth the minute it takes. If you catch an error, say so — a learner double-checking is the system working, not a failure of it.
