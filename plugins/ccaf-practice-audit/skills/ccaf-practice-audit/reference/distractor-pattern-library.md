@@ -4,7 +4,7 @@
   See LICENSE-THIRD-PARTY at the repository root for the full license text.
 -->
 
-# Distractor Pattern Library (21 named patterns)
+# Distractor Pattern Library (22 named patterns)
 
 The CCA-F exam is scenario multiple-response questions (multiple choice, *select all that apply* — one or more options correct). The options that are *not* keyed correct are plausible distractors, and each falls into a recognizable pattern. Naming the pattern lets you eliminate distractors faster and more reliably than reasoning each scenario from scratch — and on a multi-select question you must judge every option independently, since knowing one answer no longer rules the others out.
 
@@ -222,6 +222,18 @@ Options that delay, "improve on," or second-guess an explicit human request — 
 Examples: "Escalate, but first run diagnostic checks to give the human agent context"; "attempt the remaining troubleshooting steps since the agent may still resolve the issue" — when the customer has explicitly asked for a human.
 
 **Rule:** an explicit request for a human is a hard escalation trigger; act on it immediately. This is the mirror image of #9 Punt-to-user: #9 over-asks the human, #21 under-obeys them.
+
+---
+
+## 22. Right-hook-wrong-phase (timing inversion)
+
+A real interception mechanism chosen at the wrong point in the lifecycle. The feature exists and is even the right *kind* of tool — it just fires at a moment where it cannot do the job.
+
+Examples: `PostToolUse` when you needed `PreToolUse` to **block** a non-compliant edit before it lands (PostToolUse only sees it afterward); a `PreCompact` hook to inject context when you needed `pause_after_compaction: true` (inject *before* compaction and your content gets summarized away).
+
+**Rule:** to prevent or gate an action, or to inject context that must survive a later step, the hook must fire **BEFORE** the operation it governs. "Post-"/"after-" hooks observe and react — they can never prevent — and anything a "pre-" hook hands forward can be overwritten by the very step you were trying to influence.
+
+Distinct from #4 Wrong-lever (right feature, wrong *problem*) — here it's the right feature at the wrong *time*.
 
 ---
 
