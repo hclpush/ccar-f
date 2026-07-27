@@ -4,7 +4,7 @@
   See LICENSE-THIRD-PARTY at the repository root for the full license text.
 -->
 
-# Distractor Pattern Library (22 named patterns)
+# Distractor Pattern Library (23 named patterns)
 
 The CCA-F exam is scenario multiple-response questions (multiple choice, *select all that apply* — one or more options correct). The options that are *not* keyed correct are plausible distractors, and each falls into a recognizable pattern. Naming the pattern lets you eliminate distractors faster and more reliably than reasoning each scenario from scratch — and on a multi-select question you must judge every option independently, since knowing one answer no longer rules the others out.
 
@@ -234,6 +234,18 @@ Examples: `PostToolUse` when you needed `PreToolUse` to **block** a non-complian
 **Rule:** to prevent or gate an action, or to inject context that must survive a later step, the hook must fire **BEFORE** the operation it governs. "Post-"/"after-" hooks observe and react — they can never prevent — and anything a "pre-" hook hands forward can be overwritten by the very step you were trying to influence.
 
 Distinct from #4 Wrong-lever (right feature, wrong *problem*) — here it's the right feature at the wrong *time*.
+
+---
+
+## 23. Belt-and-suspenders
+
+Stacking a second mechanism (or an extra restrictive flag) on top of one that already fully solves the problem.
+
+Examples: "use tool_use for extraction, then output_config for final formatting" — either alone guarantees structured output; adding `disable-model-invocation: true` to a skill that only needed `context: fork` + `allowed-tools` — the extra flag breaks the skill's reusability.
+
+**Rule:** if one mechanism fully satisfies the requirement, the option that adds a second isn't "safer" — it's overhead, a broken requirement, or a tell that you don't know which mechanism suffices. Pick the minimal sufficient configuration.
+
+Distinct from #3 Sledgehammer (one oversized tool for a small job) — here it's *two* right-sized tools where one is enough.
 
 ---
 
