@@ -1,6 +1,6 @@
 # ccaf-exam-tech-foundation
 
-Teaches the ~38 foundational computer-science concepts a non-technical learner needs to read CCA-F exam material fluently — JSON, JSON Schema, glob patterns, environment variables, caching, Docker, tokens, and more. Each concept is anchored to the specific exam topic where it appears, and taught only as far as the exam needs it.
+Teaches the ~32 foundational computer-science concepts a non-technical learner needs to read CCA-F exam material fluently — JSON, JSON Schema, glob patterns, environment variables, caching, Docker, Kubernetes, and more. Each concept is anchored to the specific exam topic where it appears, and taught only as far as the exam needs it.
 
 It runs a 3-step loop per concept:
 
@@ -14,7 +14,7 @@ This is a **prerequisite layer** beneath the `cca-f-exam-prep` study system — 
 skills/ccaf-exam-tech-foundation/
 ├── SKILL.md
 └── reference/
-    ├── concept-list.md   # 38 concepts × 8 categories; CCA-F anchor + prerequisite each
+    ├── concept-list.md   # 32 concepts × 7 categories; CCA-F anchor + prerequisite each
     └── study-method.md   # the 3-step Explain → Feynman → Quiz loop
 ```
 
@@ -41,4 +41,4 @@ The exam and Claude Code both change. Before editing any concept anchor:
 - **Verify exam structure** (domains, weights, scenarios, in/out-of-scope topics) against the *current* official exam guide, not third-party prep sites.
 - **Note the source and date** of any change so the next contributor knows what was checked.
 
-Two concepts — **Caching** and **Streaming** — are anchored to topics the guide lists as *out of scope*. They're kept intentionally as background (teach the concept, flag "not tested"). Don't remove them as errors.
+One concept — **Caching** — is anchored to a topic the guide lists as *out of scope* (prompt caching). It's kept intentionally as background (teach the concept, flag "not tested"). Don't remove it as an error. Claude-specific concepts (tokens, context window, prompt/system prompt, streaming, CLI usage) were moved out of this foundation layer — they belong to the main `cca-f-exam-prep` material.

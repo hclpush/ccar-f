@@ -5,13 +5,13 @@ description: Teach a non-technical learner the foundational computer-science con
 
 # CCA-F Tech Foundation Skill
 
-A bridge layer for learners who are studying for the Anthropic CCA-F exam but don't have a software background. The CCA-F material assumes fluency with ~38 foundational computer-science concepts — file paths, JSON, environment variables, caching, APIs, and so on. When those are missing, the exam content reads as noise. This skill closes that gap by teaching each concept **only as far as the exam needs it**, anchored to the specific exam topic where it appears.
+A bridge layer for learners who are studying for the Anthropic CCA-F exam but don't have a software background. The CCA-F material assumes fluency with ~32 foundational computer-science concepts — file paths, JSON, environment variables, caching, APIs, and so on. When those are missing, the exam content reads as noise. This skill closes that gap by teaching each concept **only as far as the exam needs it**, anchored to the specific exam topic where it appears.
 
 This is a **prerequisite layer for `cca-f-exam-prep`, not a replacement.** If a learner is in a cca-f-exam-prep session and hits a term they don't understand, they can context-switch here to unblock the single concept, then return to exam prep. The goal is to *unblock*, not to maintain long-term mastery — so there is no spaced-repetition log and no distractor-pattern tagging here. Those belong to cca-f-exam-prep.
 
 ## Read first (these encode the system)
 
-- `reference/concept-list.md` — the 38 concepts in 8 categories. Each has a **CCA-F anchor** (the exam topic it appears in) and a **Prerequisite** (what to learn first). Use this to pick the concept, respect prerequisite order, and write exam-anchored examples.
+- `reference/concept-list.md` — the 32 concepts in 7 categories. Each has a **CCA-F anchor** (the exam topic it appears in) and a **Prerequisite** (what to learn first). Use this to pick the concept, respect prerequisite order, and write exam-anchored examples.
 - `reference/study-method.md` — the per-concept 3-step loop (Explain → Feynman → Quiz). Read this before teaching.
 
 ## Session opener
@@ -25,7 +25,7 @@ Two entry paths:
 1. **Learner names a concept** → look it up in `concept-list.md`, check its Prerequisite, and if the prerequisite is also shaky, offer to teach that first ("JSON Schema builds on JSON — are you solid on plain JSON first?").
 2. **Learner pastes an exam sentence or term** → map it to the underlying concept(s) via the CCA-F anchors in `concept-list.md`, then teach the one that's actually blocking.
 
-If the learner is unsure where to start, suggest beginning with Category 1 (Data & Formats), since the most exam material depends on it.
+If the learner is unsure where to start, suggest beginning with Category 1 (Programming basics) and Category 2 (Data formats), since the most exam material depends on them.
 
 ## Correctness guardrails (read before teaching anything)
 
