@@ -1,0 +1,16 @@
+# Mirror groups — files that MUST stay byte-identical across plugins.
+#
+# Format: one group per block, one repo-relative path per line,
+#         blocks separated by blank lines. '#' starts a comment.
+#
+# The pre-commit hook enforces every group listed here. To add a new
+# mirrored file, append a block — no script changes needed.
+#
+# DO NOT list files that only *look* duplicated but differ on purpose,
+# e.g. each plugin's LICENSE-THIRD-PARTY names its own plugin's path.
+
+# The distractor pattern library is bundled into both the mock-exam
+# analysis loop and the practice audit; both skills cite pattern numbers,
+# so a divergent copy would make the numbering lie.
+plugins/ccaf-mock-exam-analysis/skills/ccaf-mock-exam-analysis/reference/distractor-pattern-library.md
+plugins/ccaf-practice-audit/skills/ccaf-practice-audit/reference/distractor-pattern-library.md

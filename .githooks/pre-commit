@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+#
+# pre-commit — keep "mirror group" files byte-identical.
+#
+# Some reference files are deliberately duplicated across plugins, because a
+# plugin must be self-contained: installing one plugin alone can't depend on a
+# file living inside a sibling. That makes symlinks unusable and drift likely.
+#
+# This hook closes the gap at the last safe moment — before content enters
+# history. For each group in .githooks/mirror-groups.txt:
+#
+#   * all copies staged identical            -> pass, silently
+#   * exactly one copy changed vs HEAD       -> propagate it to the siblings,
+#                                               stage them, report what it did
+#   * two or more copies changed differently -> abort; a human must merge
+#
+# It compares INDEX content (not the working tree), so `git add -p` partial
+# staging propagates exactly what you staged and nothing more.
+#
+# Enable in a fresh clone with:  git config core.hooksPath .githooks
+
+set -uo pipefail
+
+cd "$(git rev-parse --show-toplevel)" || exit 1
+
+MANIFEST=".githooks/mirror-groups.txt"
+[ -f "$MANIFEST" ] || exit 0   # nothing configured; don't block the commit
+
+exit_code=0
+
+# Enforce one group. Args: the repo-relative paths in the group.
+check_group() {
+	local paths=("$@")
+	local staged=() head_blob=() changed=() i
+
+	# Resolve each path's staged blob and its committed blob.
+	for i in "${!paths[@]}"; do
+		if ! staged[i]=$(git rev-parse ":${paths[i]}" 2>/dev/null); then
+			printf '[mirror] ERROR: %s is missing from the index (deleted or untracked).\n' "${paths[i]}" >&2
+			printf '[mirror]        Mirror groups require every copy to exist. Fix %s if the file moved.\n' "$MANIFEST" >&2
+			return 1
+		fi
+		# Empty when the file is new in this commit (not yet in HEAD).
+		head_blob[i]=$(git rev-parse "HEAD:${paths[i]}" 2>/dev/null || printf '')
+	done
+
+	# Fast path: every copy already agrees.
+	local all_same=1
+	for i in "${!paths[@]}"; do
+		[ "${staged[i]}" = "${staged[0]}" ] || all_same=0
+	done
+	[ "$all_same" -eq 1 ] && return 0
+
+	# They disagree. Identify which copies this commit actually touched.
+	for i in "${!paths[@]}"; do
+		[ "${staged[i]}" != "${head_blob[i]}" ] && changed+=("$i")
+	done
+
+	if [ "${#changed[@]}" -ne 1 ]; then
+		printf '[mirror] ERROR: mirrored copies disagree and I cannot pick a winner.\n' >&2
+		for i in "${!paths[@]}"; do
+			local mark="  unchanged"
+			[ "${staged[i]}" != "${head_blob[i]}" ] && mark="  CHANGED  "
+			printf '[mirror]%s %s\n' "$mark" "${paths[i]}" >&2
+		done
+		printf '[mirror]        Decide which copy is right, copy it over the others, stage them, and commit again.\n' >&2
+		return 1
+	fi
+
+	# Exactly one source of truth — propagate it.
+	local src="${changed[0]}"
+	printf '[mirror] %s changed\n' "${paths[src]}"
+	for i in "${!paths[@]}"; do
+		[ "$i" = "$src" ] && continue
+
+		# Never clobber unstaged edits sitting in a sibling — that would
+		# silently destroy work the user hasn't committed yet.
+		if ! git diff --quiet -- "${paths[i]}"; then
+			printf '[mirror] ERROR: %s has unstaged changes; refusing to overwrite it.\n' "${paths[i]}" >&2
+			printf '[mirror]        Stage or discard those changes, then commit again.\n' >&2
+			return 1
+		fi
+
+		git cat-file blob "${staged[src]}" >"${paths[i]}" || return 1
+		git add -- "${paths[i]}" || return 1
+		printf '[mirror]   -> synced to %s, staged\n' "${paths[i]}"
+	done
+	return 0
+}
+
+# Parse the manifest into blank-line-separated blocks, enforcing each.
+group=()
+flush_group() {
+	# A group needs at least two paths to mean anything.
+	if [ "${#group[@]}" -ge 2 ]; then
+		check_group "${group[@]}" || exit_code=1
+	fi
+	group=()
+}
+
+while IFS= read -r line || [ -n "$line" ]; do
+	line="${line%%#*}"                          # strip comments
+	line="${line#"${line%%[![:space:]]*}"}"     # trim leading whitespace
+	line="${line%"${line##*[![:space:]]}"}"     # trim trailing whitespace
+	if [ -z "$line" ]; then
+		flush_group
+	else
+		group+=("$line")
+	fi
+done <"$MANIFEST"
+flush_group
+
+exit "$exit_code"

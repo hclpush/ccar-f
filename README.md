@@ -49,6 +49,7 @@ Claude-specific facts (CLI flags, config paths) are cross-checked against <https
 ```
 cca-f/
 ├── .claude-plugin/marketplace.json    # lists every plugin below
+├── .githooks/                         # pre-commit guard for mirrored files
 ├── plugins/
 │   ├── ccaf-practice-audit/           # audit skill + Stop hook + change detector
 │   ├── ccaf-exam-tech-foundation/     # concept-teaching skill
@@ -58,6 +59,20 @@ cca-f/
 ```
 
 Plugins are self-contained by design (installing one copies only its folder), so shared ideas — e.g. the distractor-pattern library — live inside the plugin that uses them rather than in a common folder.
+
+## Development
+
+Self-containment means a few files are deliberately duplicated across plugins and must stay byte-identical — the distractor-pattern library above all, since both skills cite its pattern numbers. A symlink would break standalone installs, so a pre-commit hook enforces it instead.
+
+Enable it once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Then edit whichever copy you like. On commit, the hook propagates your change to the siblings and stages them. If two copies were edited differently, it aborts and asks you to resolve. Groups are declared in [.githooks/mirror-groups.txt](.githooks/mirror-groups.txt) — add a block there to mirror a new file.
+
+Note that files which merely look duplicated are *not* mirrored: each plugin's `LICENSE-THIRD-PARTY` names its own plugin's path and is meant to differ.
 
 ## Credits
 
