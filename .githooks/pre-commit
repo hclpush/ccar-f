@@ -40,6 +40,27 @@ check_group() {
 			printf '[mirror]        Mirror groups require every copy to exist. Fix %s if the file moved.\n' "$MANIFEST" >&2
 			return 1
 		fi
+
+		# Only ever sync regular files. A mirror target tracked as a symlink
+		# (mode 120000) would make the redirected write below follow it and
+		# clobber a file OUTSIDE the repo — an arbitrary-write primitive for
+		# anyone who can land a symlink and a manifest entry in a branch.
+		local mode
+		mode=$(git ls-files -s -- "${paths[i]}" | awk '{print $1; exit}')
+		case "$mode" in
+		100644 | 100755) ;;
+		*)
+			printf '[mirror] ERROR: %s is not a regular file in the index (mode %s).\n' "${paths[i]}" "${mode:-unknown}" >&2
+			printf '[mirror]        Mirror groups only sync regular files; refusing.\n' >&2
+			return 1
+			;;
+		esac
+		# Belt for the case where the worktree entry was swapped for a symlink
+		# after staging.
+		if [ -L "${paths[i]}" ]; then
+			printf '[mirror] ERROR: %s is a symlink in the working tree; refusing.\n' "${paths[i]}" >&2
+			return 1
+		fi
 		# Empty when the file is new in this commit (not yet in HEAD).
 		head_blob[i]=$(git rev-parse "HEAD:${paths[i]}" 2>/dev/null || printf '')
 	done
@@ -81,7 +102,15 @@ check_group() {
 			return 1
 		fi
 
-		git cat-file blob "${staged[src]}" >"${paths[i]}" || return 1
+		# Write via a temp file in the same directory, then rename. A direct
+		# redirect truncates the target first, so a failure mid-write would
+		# leave the sibling empty.
+		local tmp="${paths[i]}.mirror-tmp.$$"
+		if ! git cat-file blob "${staged[src]}" >"$tmp"; then
+			rm -f "$tmp"
+			return 1
+		fi
+		mv -f "$tmp" "${paths[i]}" || { rm -f "$tmp"; return 1; }
 		git add -- "${paths[i]}" || return 1
 		printf '[mirror]   -> synced to %s, staged\n' "${paths[i]}"
 	done
