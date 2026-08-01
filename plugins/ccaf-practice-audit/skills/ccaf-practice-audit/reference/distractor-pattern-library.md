@@ -1,7 +1,7 @@
 <!--
   Bundled from the cca-f-exam-prep study system.
   Copyright (c) 2026 Abi Odedeyi (CodeFreeIQ) - MIT License.
-  See LICENSE-THIRD-PARTY at the repository root for the full license text.
+  See LICENSE-THIRD-PARTY at the root of this plugin for the full license text.
 -->
 
 # Distractor Pattern Library (21 named patterns)
