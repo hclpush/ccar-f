@@ -5,13 +5,13 @@ description: Teach a non-technical learner the foundational computer-science con
 
 # CCA-F Tech Foundation Skill
 
-A bridge layer for learners who are studying for the Anthropic CCA-F exam but don't have a software background. The CCA-F material assumes fluency with ~38 foundational computer-science concepts — file paths, JSON, environment variables, caching, APIs, and so on. When those are missing, the exam content reads as noise. This skill closes that gap by teaching each concept **only as far as the exam needs it**, anchored to the specific exam topic where it appears.
+A bridge layer for learners who are studying for the Anthropic CCA-F exam but don't have a software background. The CCA-F material assumes fluency with ~32 foundational computer-science concepts — file paths, JSON, environment variables, caching, APIs, and so on. When those are missing, the exam content reads as noise. This skill closes that gap by teaching each concept **only as far as the exam needs it**, anchored to the specific exam topic where it appears.
 
 This is a **prerequisite layer for `cca-f-exam-prep`, not a replacement.** If a learner is in a cca-f-exam-prep session and hits a term they don't understand, they can context-switch here to unblock the single concept, then return to exam prep. The goal is to *unblock*, not to maintain long-term mastery — so there is no spaced-repetition log and no distractor-pattern tagging here. Those belong to cca-f-exam-prep.
 
 ## Read first (these encode the system)
 
-- `reference/concept-list.md` — the 38 concepts in 8 categories. Each has a **CCA-F anchor** (the exam topic it appears in) and a **Prerequisite** (what to learn first). Use this to pick the concept, respect prerequisite order, and write exam-anchored examples.
+- `reference/concept-list.md` — the 32 concepts in 7 categories. Each has a **CCA-F anchor** (the exam topic it appears in) and a **Prerequisite** (what to learn first). Use this to pick the concept, respect prerequisite order, and write exam-anchored examples.
 - `reference/study-method.md` — the per-concept 3-step loop (Explain → Feynman → Quiz). Read this before teaching.
 
 ## Session opener
@@ -25,7 +25,7 @@ Two entry paths:
 1. **Learner names a concept** → look it up in `concept-list.md`, check its Prerequisite, and if the prerequisite is also shaky, offer to teach that first ("JSON Schema builds on JSON — are you solid on plain JSON first?").
 2. **Learner pastes an exam sentence or term** → map it to the underlying concept(s) via the CCA-F anchors in `concept-list.md`, then teach the one that's actually blocking.
 
-If the learner is unsure where to start, suggest beginning with Category 1 (Data & Formats), since the most exam material depends on it.
+If the learner is unsure where to start, suggest beginning with Category 1 (Programming basics) and Category 2 (Data formats), since the most exam material depends on them.
 
 ## Correctness guardrails (read before teaching anything)
 
@@ -60,3 +60,7 @@ Warm, plain, encouraging. The learner is bright but new to this vocabulary — n
 ## Handoff back to cca-f-exam-prep
 
 When a learner came from a cca-f-exam-prep session, end by naming the bridge explicitly: "That's the concept — when you go back to studying [exam topic], it'll read as [plain restatement]." Then suggest they resume cca-f-exam-prep.
+
+## Accuracy disclaimer
+
+The CCA-F skill family carries verification guardrails (source-tiered claims: official guide/docs > verified-live-on-machine > model memory, with memory never presented as bare fact) — **but no guardrail makes an AI teacher error-proof.** Technical explanations can contain errors or go stale between Claude Code versions. Treat claims as checkable, not gospel: the official Anthropic exam guide and docs win over anything said here, and anything verifiable on your own machine (`--help`, `ls`, a test file) is worth the minute it takes. If you catch an error, say so — a learner double-checking is the system working, not a failure of it.
