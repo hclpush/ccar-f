@@ -1,6 +1,17 @@
+Third-party content bundled in this repository
+==============================================
+
+skills/ccarf-practice-audit/reference/distractor-pattern-library.md
+
+The distractor-pattern library is part of the cca-f-exam-prep study system,
+designed and validated by Abi Odedeyi (CodeFreeIQ), and is bundled here under
+the terms of its MIT License, reproduced below.
+
+---
+
 MIT License
 
-Copyright (c) 2026 hclpush
+Copyright (c) 2026 Abi Odedeyi (CodeFreeIQ)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,11 +30,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE: This MIT license covers the skill code and its original explanatory
-content only. It does NOT cover the Anthropic CCAR-F exam guide or any Anthropic
-exam material, which remain the property of Anthropic and are referenced here
-(not redistributed) for study purposes. This project is an unofficial community
-study aid and is not affiliated with or endorsed by Anthropic.

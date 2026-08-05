@@ -1,8 +1,0 @@
-{
-  "name": "ccaf-mock-exam-analysis",
-  "version": "0.2.0",
-  "description": "Turn a completed CCA-F mock exam into a targeted study plan — classify every miss by official domain and root cause, tag named distractor patterns, compare against previous mocks, and build a days-until-exam drill plan.",
-  "author": {
-    "name": "hclpush"
-  }
-}

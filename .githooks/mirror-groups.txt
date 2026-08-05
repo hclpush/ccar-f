@@ -12,5 +12,5 @@
 # The distractor pattern library is bundled into both the mock-exam
 # analysis loop and the practice audit; both skills cite pattern numbers,
 # so a divergent copy would make the numbering lie.
-plugins/ccaf-mock-exam-analysis/skills/ccaf-mock-exam-analysis/reference/distractor-pattern-library.md
-plugins/ccaf-practice-audit/skills/ccaf-practice-audit/reference/distractor-pattern-library.md
+plugins/ccarf-mock-exam-analysis/skills/ccarf-mock-exam-analysis/reference/distractor-pattern-library.md
+plugins/ccarf-practice-audit/skills/ccarf-practice-audit/reference/distractor-pattern-library.md

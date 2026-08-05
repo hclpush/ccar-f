@@ -1,0 +1,8 @@
+{
+  "name": "ccarf-practice-audit",
+  "version": "0.1.0",
+  "description": "Audit your project against CCAR-F (Claude Certified Architect – Foundations) best practices — every finding explained as exam-prep teaching, auto-triggered on significant repo change via an opt-in Stop hook.",
+  "author": {
+    "name": "hclpush"
+  }
+}

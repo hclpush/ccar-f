@@ -1,23 +1,23 @@
 {
-  "name": "cca-f",
+  "name": "ccar-f",
   "owner": {
     "name": "hclpush"
   },
   "plugins": [
     {
-      "name": "ccaf-practice-audit",
-      "source": "./plugins/ccaf-practice-audit",
-      "description": "CCA-F best-practice project audits that double as exam prep — explanation-only teaching with task-statement and distractor-pattern mapping, auto-triggered on significant change (opt-in per repo)."
+      "name": "ccarf-practice-audit",
+      "source": "./plugins/ccarf-practice-audit",
+      "description": "CCAR-F best-practice project audits that double as exam prep — explanation-only teaching with task-statement and distractor-pattern mapping, auto-triggered on significant change (opt-in per repo)."
     },
     {
-      "name": "ccaf-exam-tech-foundation",
-      "source": "./plugins/ccaf-exam-tech-foundation",
-      "description": "The prerequisite layer for CCA-F study — teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to the exam topic where it appears."
+      "name": "ccarf-exam-tech-foundation",
+      "source": "./plugins/ccarf-exam-tech-foundation",
+      "description": "The prerequisite layer for CCAR-F study — teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to the exam topic where it appears."
     },
     {
-      "name": "ccaf-mock-exam-analysis",
-      "source": "./plugins/ccaf-mock-exam-analysis",
-      "description": "The backward loop — turn a completed CCA-F mock exam into a targeted study plan: per-miss domain + root-cause classification, distractor-pattern tagging, trend comparison across mocks, days-until-exam drill plan."
+      "name": "ccarf-mock-exam-analysis",
+      "source": "./plugins/ccarf-mock-exam-analysis",
+      "description": "The backward loop — turn a completed CCAR-F mock exam into a targeted study plan: per-miss domain + root-cause classification, distractor-pattern tagging, trend comparison across mocks, days-until-exam drill plan."
     }
   ]
 }
