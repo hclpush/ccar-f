@@ -16,7 +16,7 @@ Audit a real project against the practices tested by the Anthropic CCAR-F exam, 
 
 - `reference/audit-checklist.md` (this skill) — the auditable practices per domain. **Read this first, every run.**
 - `reference/distractor-pattern-library.md` (this skill) — the named distractor patterns (by Abi Odedeyi / CodeFreeIQ, MIT-licensed, bundled with permission of the license). Cite patterns by name in exam lenses.
-- The official exam guide — **not bundled** (it is Anthropic's copyrighted material). The learner can download it here: [Claude Certified Architect – Foundations Certification Exam Guide (PDF)](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773274827%2FClaude+Certified+Architect+%E2%80%93+Foundations+Certification+Exam+Guide.pdf). If the project's `.claude/ccarf-audit-state.json` has an `exam_guide_path` pointing to a local copy, read it and treat it as the spine — if the guide and your memory disagree, the guide wins.
+- The official exam guide — **not bundled** (it is Anthropic's copyrighted material). The learner can download it here: [Claude Certified Architect – Foundations Exam Guide (PDF)](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf). If the project's `.claude/ccarf-audit-state.json` has an `exam_guide_path` pointing to a local copy, read it and treat it as the spine — if the guide and your memory disagree, the guide wins.
 
 If you can't verify a Claude API/SDK/Claude Code detail against the guide or primary docs, say so plainly rather than inventing it — an audit that teaches wrong facts is worse than no audit.
 
