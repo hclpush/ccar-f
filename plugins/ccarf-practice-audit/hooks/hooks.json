@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/check_change.py\"",
+            "timeout": 30,
+            "statusMessage": "Checking whether a CCAR-F practice audit is due"
+          }
+        ]
+      }
+    ]
+  }
+}

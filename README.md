@@ -1,8 +1,8 @@
-# cca-f
+# ccar-f
 
-Claude Code plugins for studying the **CCA-F exam (Claude Certified Architect – Foundations)** — built for people preparing the certification while shipping real projects.
+Claude Code plugins for studying the **CCAR-F exam (Claude Certified Architect – Foundations)** — built for people preparing the certification while shipping real projects.
 
-> **Disclaimer — unofficial.** These are community study aids. They are **not affiliated with, endorsed by, or produced by Anthropic**. "CCA-F," "Claude Certified Architect," and "Claude" are referenced for study purposes only. Anthropic's official exam guide is the source of truth.
+> **Disclaimer — unofficial.** These are community study aids. They are **not affiliated with, endorsed by, or produced by Anthropic**. "CCAR-F," "Claude Certified Architect," and "Claude" are referenced for study purposes only. Anthropic's official exam guide is the source of truth.
 
 ## The idea
 
@@ -16,28 +16,28 @@ Studying a certification in one tab while coding in another wastes the best stud
 
 | Plugin | What it does | Docs |
 |---|---|---|
-| **ccaf-practice-audit** | Audits your project against the practices the exam tests; every finding explained as study material (task statement, scenario framing, named distractor patterns). Ships an **opt-in** Stop hook that re-audits automatically on significant repo change. | [README](plugins/ccaf-practice-audit/README.md) |
-| **ccaf-exam-tech-foundation** | The prerequisite layer: teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to its exam topic, via a 3-step Explain → Feynman → Quiz loop. | [README](plugins/ccaf-exam-tech-foundation/README.md) |
-| **ccaf-mock-exam-analysis** | The backward loop: turns a completed mock exam into a targeted study plan — per-miss domain + root-cause classification, distractor-pattern tagging, trend comparison across mocks, and a days-until-exam drill plan. | [README](plugins/ccaf-mock-exam-analysis/README.md) |
+| **ccarf-practice-audit** | Audits your project against the practices the exam tests; every finding explained as study material (task statement, scenario framing, named distractor patterns). Ships an **opt-in** Stop hook that re-audits automatically on significant repo change. | [README](plugins/ccarf-practice-audit/README.md) |
+| **ccarf-exam-tech-foundation** | The prerequisite layer: teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to its exam topic, via a 3-step Explain → Feynman → Quiz loop. | [README](plugins/ccarf-exam-tech-foundation/README.md) |
+| **ccarf-mock-exam-analysis** | The backward loop: turns a completed mock exam into a targeted study plan — per-miss domain + root-cause classification, distractor-pattern tagging, trend comparison across mocks, and a days-until-exam drill plan. | [README](plugins/ccarf-mock-exam-analysis/README.md) |
 
 Install only what you want — plugins are independent.
 
-> ⚠️ **ccaf-practice-audit installs a Stop hook** (silent until you opt a repo in). Read [its README](plugins/ccaf-practice-audit/README.md) — especially the "what the hook does" and security-posture sections — before installing.
+> ⚠️ **ccarf-practice-audit installs a Stop hook** (silent until you opt a repo in). Read [its README](plugins/ccarf-practice-audit/README.md) — especially the "what the hook does" and security-posture sections — before installing.
 
 ## Install
 
 ```
-/plugin marketplace add hclpush/cca-f
-/plugin install ccaf-practice-audit@cca-f
-/plugin install ccaf-exam-tech-foundation@cca-f
-/plugin install ccaf-mock-exam-analysis@cca-f
+/plugin marketplace add hclpush/ccar-f
+/plugin install ccarf-practice-audit@ccar-f
+/plugin install ccarf-exam-tech-foundation@ccar-f
+/plugin install ccarf-mock-exam-analysis@ccar-f
 ```
 
 Each plugin's README also documents a manual, no-plugin-system install.
 
 ## Source of truth
 
-Task statements, exam domains, weights, and scenario names are grounded in the **official Anthropic CCA-F Certification Exam Guide**. This repo does **not** redistribute the guide — download the current version from Anthropic's certification page.
+Task statements, exam domains, weights, and scenario names are grounded in the **official Anthropic CCAR-F Certification Exam Guide**. This repo does **not** redistribute the guide — download the current version from Anthropic's certification page.
 
 Direct PDF link at time of writing (may rotate — prefer the certification page):
 <https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773274827%2FClaude+Certified+Architect+%E2%80%93+Foundations+Certification+Exam+Guide.pdf>
@@ -47,13 +47,13 @@ Claude-specific facts (CLI flags, config paths) are cross-checked against <https
 ## Repo layout
 
 ```
-cca-f/
+ccar-f/
 ├── .claude-plugin/marketplace.json    # lists every plugin below
 ├── .githooks/                         # pre-commit guard for mirrored files
 ├── plugins/
-│   ├── ccaf-practice-audit/           # audit skill + Stop hook + change detector
-│   ├── ccaf-exam-tech-foundation/     # concept-teaching skill
-│   └── ccaf-mock-exam-analysis/       # mock-exam gap analysis + drill planning
+│   ├── ccarf-practice-audit/           # audit skill + Stop hook + change detector
+│   ├── ccarf-exam-tech-foundation/     # concept-teaching skill
+│   └── ccarf-mock-exam-analysis/       # mock-exam gap analysis + drill planning
 ├── LICENSE
 └── README.md
 ```
@@ -76,9 +76,9 @@ Note that files which merely look duplicated are *not* mirrored: each plugin's `
 
 ## Credits
 
-- **Distractor-pattern library** (bundled in ccaf-practice-audit and ccaf-mock-exam-analysis — plugins are self-contained, so each carries its own copy): Abi Odedeyi (CodeFreeIQ), MIT with attribution — see [LICENSE-THIRD-PARTY](plugins/ccaf-practice-audit/LICENSE-THIRD-PARTY). Her full study system (Explain → Feynman → Quiz → Notes with spaced repetition) is the companion to these plugins.
-- CCA-F task-statement references are paraphrased; always defer to the official exam guide.
+- **Distractor-pattern library** (bundled in ccarf-practice-audit and ccarf-mock-exam-analysis — plugins are self-contained, so each carries its own copy): Abi Odedeyi (CodeFreeIQ), MIT with attribution — see [LICENSE-THIRD-PARTY](plugins/ccarf-practice-audit/LICENSE-THIRD-PARTY). Her full study system (Explain → Feynman → Quiz → Notes with spaced repetition) is the companion to these plugins.
+- CCAR-F task-statement references are paraphrased; always defer to the official exam guide.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Third-party content: [LICENSE-THIRD-PARTY](plugins/ccaf-practice-audit/LICENSE-THIRD-PARTY).
+MIT — see [LICENSE](LICENSE). Third-party content: [LICENSE-THIRD-PARTY](plugins/ccarf-practice-audit/LICENSE-THIRD-PARTY).
