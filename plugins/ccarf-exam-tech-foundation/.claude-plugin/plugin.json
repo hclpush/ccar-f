@@ -1,7 +1,7 @@
 {
   "name": "ccarf-exam-tech-foundation",
   "version": "0.1.0",
-  "description": "Teach the ~38 foundational computer-science concepts a non-technical learner needs to read CCAR-F (Claude Certified Architect – Foundations) exam material — each anchored to the exam topic where it appears, via a 3-step Explain → Feynman → Quiz loop.",
+  "description": "Teach the 32 foundational computer-science concepts a non-technical learner needs to read CCAR-F (Claude Certified Architect – Foundations) exam material — each anchored to the exam topic where it appears, via a 3-step Explain → Feynman → Quiz loop.",
   "author": {
     "name": "hclpush"
   }

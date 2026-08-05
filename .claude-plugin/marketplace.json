@@ -12,7 +12,7 @@
     {
       "name": "ccarf-exam-tech-foundation",
       "source": "./plugins/ccarf-exam-tech-foundation",
-      "description": "The prerequisite layer for CCAR-F study — teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to the exam topic where it appears."
+      "description": "The prerequisite layer for CCAR-F study — teaches the 32 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to the exam topic where it appears."
     },
     {
       "name": "ccarf-mock-exam-analysis",

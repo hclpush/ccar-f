@@ -17,7 +17,7 @@ Studying a certification in one tab while coding in another wastes the best stud
 | Plugin | What it does | Docs |
 |---|---|---|
 | **ccarf-practice-audit** | Audits your project against the practices the exam tests; every finding explained as study material (task statement, scenario framing, named distractor patterns). Ships an **opt-in** Stop hook that re-audits automatically on significant repo change. | [README](plugins/ccarf-practice-audit/README.md) |
-| **ccarf-exam-tech-foundation** | The prerequisite layer: teaches the ~38 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to its exam topic, via a 3-step Explain → Feynman → Quiz loop. | [README](plugins/ccarf-exam-tech-foundation/README.md) |
+| **ccarf-exam-tech-foundation** | The prerequisite layer: teaches the 32 foundational CS concepts (JSON, glob, env vars, caching, MCP…) a non-technical learner needs, each anchored to its exam topic, via a 3-step Explain → Feynman → Quiz loop. | [README](plugins/ccarf-exam-tech-foundation/README.md) |
 | **ccarf-mock-exam-analysis** | The backward loop: turns a completed mock exam into a targeted study plan — per-miss domain + root-cause classification, distractor-pattern tagging, trend comparison across mocks, and a days-until-exam drill plan. | [README](plugins/ccarf-mock-exam-analysis/README.md) |
 
 Install only what you want — plugins are independent.
@@ -40,7 +40,7 @@ Each plugin's README also documents a manual, no-plugin-system install.
 Task statements, exam domains, weights, and scenario names are grounded in the **official Anthropic CCAR-F Certification Exam Guide**. This repo does **not** redistribute the guide — download the current version from Anthropic's certification page.
 
 Direct PDF link at time of writing (may rotate — prefer the certification page):
-<https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773274827%2FClaude+Certified+Architect+%E2%80%93+Foundations+Certification+Exam+Guide.pdf>
+<https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf>
 
 Claude-specific facts (CLI flags, config paths) are cross-checked against <https://docs.claude.com>.
 

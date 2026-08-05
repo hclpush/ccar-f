@@ -14,7 +14,7 @@ Instead of studying the exam guide in one tab and coding in another, your own co
 | `scripts/check_change.py` | The change detector that powers the auto-trigger |
 | `hooks/hooks.json` | Wires the detector as a Stop hook |
 
-The **official exam guide is not bundled** (it's Anthropic's copyrighted material). Download it yourself: [CCAR-F Certification Exam Guide (PDF)](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F8lsy243ftffjjy1cx9lm3o2bw%2Fpublic%2F1773274827%2FClaude+Certified+Architect+%E2%80%93+Foundations+Certification+Exam+Guide.pdf) — and optionally point the skill at your local copy (see Configuration).
+The **official exam guide is not bundled** (it's Anthropic's copyrighted material). Download it yourself: [CCAR-F Exam Guide (PDF)](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf) — and optionally point the skill at your local copy (see Configuration).
 
 ## ⚠️ Read this before installing — what the hook does
 
