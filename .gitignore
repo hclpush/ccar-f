@@ -1,20 +1,2 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon?
-
-# Editor / OS cruft
-*.swp
-*~
-.idea/
-.vscode/
-
-# Python (hook script)
-__pycache__/
-*.pyc
-
-# Never commit the exam guide itself (Anthropic's copyrighted material — link, don't bundle)
-*.pdf
-Claude_Certified_Architect*
-*Exam*Guide*
+.git
+.gitignore
